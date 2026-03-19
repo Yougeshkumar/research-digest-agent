@@ -1,0 +1,6 @@
+openai
+langchain
+beautifulsoup4
+requests
+scikit-learn
+tqdm

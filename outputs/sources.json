@@ -1,0 +1,207 @@
+[
+  {
+    "url": "https://en.wikipedia.org/wiki/Artificial_intelligence",
+    "claims": [
+      {
+        "claim": "Artificial intelligence (AI) is the capability of computational systems to perform tasks typically associated with human intelligence, such as learning, reasoning, problem-solving, perception, and decision-making.",
+        "evidence": "Artificial intelligence (AI) is the capability of computational systems to perform tasks typically associated with human intelligence, such as learning, reasoning, problem-solving, perception, and decision-making.",
+        "confidence": 1
+      },
+      {
+        "claim": "Generative AI's ability to create and modify content has led to several unintended consequences and harms.",
+        "evidence": "Generative AI's ability to create and modify content has led to several unintended consequences and harms.",
+        "confidence": 0.71
+      },
+      {
+        "claim": "Ethical concerns have been raised about AI's long-term effects and potential existential risks, prompting discussions about regulatory policies to ensure the safety and benefits of the technology.",
+        "evidence": "Ethical concerns have been raised about AI's long-term effects and potential existential risks, prompting discussions about regulatory policies to ensure the safety and benefits of the technology.",
+        "confidence": 1
+      },
+      {
+        "claim": "The general problem of simulating (or creating) intelligence has been broken into subproblems.",
+        "evidence": "The general problem of simulating (or creating) intelligence has been broken into subproblems.",
+        "confidence": 0.63
+      },
+      {
+        "claim": "These consist of particular traits or capabilities that researchers expect an intelligent system to display.",
+        "evidence": "These consist of particular traits or capabilities that researchers expect an intelligent system to display.",
+        "confidence": 0.72
+      },
+      {
+        "claim": "They solve most of their problems using fast, intuitive judgments. Accurate and efficient reasoning is an unsolved problem.",
+        "evidence": "They solve most of their problems using fast, intuitive judgments. Accurate and efficient reasoning is an unsolved problem.",
+        "confidence": 0.82
+      },
+      {
+        "claim": "Knowledge representation and knowledge engineering allow AI programs to answer questions intelligently and make deductions about real-world facts.",
+        "evidence": "Knowledge representation and knowledge engineering allow AI programs to answer questions intelligently and make deductions about real-world facts.",
+        "confidence": 0.97
+      },
+      {
+        "claim": "Among the most difficult problems in kno",
+        "evidence": "Among the most difficult problems in kno",
+        "confidence": 0.27
+      }
+    ]
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Climate_change",
+    "claims": [
+      {
+        "claim": "Present-day climate change includes both global warming\u2014the ongoing increase in global average temperature\u2014and its wider effects on Earth's climate system.",
+        "evidence": "Present-day climate change includes both global warming\u2014the ongoing increase in global average temperature\u2014and its wider effects on Earth's climate system.",
+        "confidence": 1
+      },
+      {
+        "claim": "Climate change in a broader sense also includes previous long-term changes to Earth's climate.",
+        "evidence": "Climate change in a broader sense also includes previous long-term changes to Earth's climate.",
+        "confidence": 0.63
+      },
+      {
+        "claim": "Earth's atmosphere now has roughly 50% more carbon dioxide, the main gas driving global warming, than it did at the end of the pre-industrial era, reaching levels not seen for millions of years. Climate change has an increasingly large impact on the environment.",
+        "evidence": "Earth's atmosphere now has roughly 50% more carbon dioxide, the main gas driving global warming, than it did at the end of the pre-industrial era, reaching levels not seen for millions of years. Climate change has an increasingly large impact on the environment.",
+        "confidence": 1
+      },
+      {
+        "claim": "One of the hotter periods was the Last Interglacial, around 125,000 years ago, where temperatures w",
+        "evidence": "One of the hotter periods was the Last Interglacial, around 125,000 years ago, where temperatures w",
+        "confidence": 0.66
+      }
+    ]
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Electric_vehicle",
+    "claims": [
+      {
+        "claim": "An electric vehicle (EV) is a vehicle propelled mostly by electric power. EVs encompass road (cars, buses, trucks and personal transporters), rail (trains, trams and monorails), boats and submersibles, aircraft (fixed-wing and multirotors) and spacecraft.",
+        "evidence": "An electric vehicle (EV) is a vehicle propelled mostly by electric power. EVs encompass road (cars, buses, trucks and personal transporters), rail (trains, trams and monorails), boats and submersibles, aircraft (fixed-wing and multirotors) and spacecraft.",
+        "confidence": 1
+      },
+      {
+        "claim": "EVs originated in the late 19th century.",
+        "evidence": "EVs originated in the late 19th century.",
+        "confidence": 0.27
+      },
+      {
+        "claim": "Electricity was among the preferred methods for powering early motor vehicles because it was quieter, provided comfort, and ease of operation.",
+        "evidence": "Electricity was among the preferred methods for powering early motor vehicles because it was quieter, provided comfort, and ease of operation.",
+        "confidence": 0.95
+      },
+      {
+        "claim": "However, its limited range hindered mass adoption throughout the 20th century.",
+        "evidence": "However, its limited range hindered mass adoption throughout the 20th century.",
+        "confidence": 0.52
+      },
+      {
+        "claim": "Since the late 20th century, technological advancement in lithium batteries, which offer superior energy density and current output versus lead-acid batteries, has revived public interest as zero-emission vehicle options.",
+        "evidence": "Since the late 20th century, technological advancement in lithium batteries, which offer superior energy density and current output versus lead-acid batteries, has revived public interest as zero-emission vehicle options.",
+        "confidence": 1
+      },
+      {
+        "claim": "Manufacturers mostly switched to hybrids that use internal combustion engines like conventional vehicles, but add electric motors as a supplement, powered by electricity produced internally by motor-generators and recovered from regenerative braking.",
+        "evidence": "Manufacturers mostly switched to hybrids that use internal combustion engines like conventional vehicles, but add electric motors as a supplement, powered by electricity produced internally by motor-generators and recovered from regenerative braking.",
+        "confidence": 1
+      },
+      {
+        "claim": "Although spacecraft have been propelled by electricity since the 1960s, non-rocket spacelaunch from Earth remains science fiction.",
+        "evidence": "Although spacecraft have been propelled by electricity since the 1960s, non-rocket spacelaunch from Earth remains science fiction.",
+        "confidence": 0.87
+      },
+      {
+        "claim": "In January 1990, General Motors President introduced its EV concept two-seater, the \"Impact\", at the Los Angeles Auto Show.",
+        "evidence": "In January 1990, General Motors President introduced its EV concept two-seater, the \"Impact\", at the Los Angeles Auto Show.",
+        "confidence": 0.82
+      },
+      {
+        "claim": "That September, the California Air Resources Board mandated major-automaker sales of EVs, in phases starting in 1998.",
+        "evidence": "That September, the California Air Resources Board mandated major-automaker sales of EVs, in phases starting in 1998.",
+        "confidence": 0.78
+      },
+      {
+        "claim": "From 1996 to 1998 GM produced 1117 EV1s, 800 of which were made available through three-year leases. Chrysler, Ford, GM, Honda, and Toyota also produced limited numbers of EVs for California drivers during this period.",
+        "evidence": "From 1996 to 1998 GM produced 1117 EV1s, 800 of which were made available through three-year leases. Chrysler, Ford, GM, Honda, and Toyota also produced limited numbers of EVs for California drivers during this period.",
+        "confidence": 1
+      }
+    ]
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Remote_work",
+    "claims": [
+      {
+        "claim": "Remote work[a] is the practice of working at or from one's home or another space rather than from an office or workplace.",
+        "evidence": "Remote work[a] is the practice of working at or from one's home or another space rather than from an office or workplace.",
+        "confidence": 0.81
+      },
+      {
+        "claim": "The practice of working at home has been documented for centuries, but remote work for large employers began on a small scale in the 1970s, when technology was developed that could link satellite offices to downtown mainframes through dumb terminals using telephone lines as a network bridge.",
+        "evidence": "The practice of working at home has been documented for centuries, but remote work for large employers began on a small scale in the 1970s, when technology was developed that could link satellite offices to downtown mainframes through dumb terminals using telephone lines as a network bridge.",
+        "confidence": 1
+      },
+      {
+        "claim": "It became more common in the 1990s and 2000s, facilitated by internet technologies such as collaborative software on cloud computing and conference calling via videotelephony.",
+        "evidence": "It became more common in the 1990s and 2000s, facilitated by internet technologies such as collaborative software on cloud computing and conference calling via videotelephony.",
+        "confidence": 1
+      },
+      {
+        "claim": "In 2020, workplace hazard controls for COVID-19 catalyzed a rapid transition to remote work for white-collar workers around the world, which largely persisted even after restrictions were lifted.",
+        "evidence": "In 2020, workplace hazard controls for COVID-19 catalyzed a rapid transition to remote work for white-collar workers around the world, which largely persisted even after restrictions were lifted.",
+        "confidence": 1
+      },
+      {
+        "claim": "The practice of working at home has been documented for centuries.",
+        "evidence": "The practice of working at home has been documented for centuries.",
+        "confidence": 0.44
+      },
+      {
+        "claim": "Management had to rely on trust and control to successfully manage distributed work.",
+        "evidence": "Management had to rely on trust and control to successfully manage distributed work.",
+        "confidence": 0.56
+      },
+      {
+        "claim": "In addition to dispersed operations that relied heavily on a combination of explicit information and detailed record-keeping, more tacit and situated knowledge developed through socialization.",
+        "evidence": "In addition to dispersed operations that relied heavily on a combination of explicit information and detailed record-keeping, more tacit and situated knowledge developed through socialization.",
+        "confidence": 1
+      },
+      {
+        "claim": "For example, the Hudson's Bay Company showed a variety of control mechanisms including selection techniques, information requirements, and direct local oversight through its distributed practices of socialization, communication, and participation.",
+        "evidence": "For example, the Hudson's Bay Company showed a variety of control mechanisms including selection techniques, information requirements, and direct local oversight through its distributed practices of socialization, communication, and participation.",
+        "confidence": 1
+      },
+      {
+        "claim": "By 1983, the experiment was expanded to 2,000 people.",
+        "evidence": "By 1983, the experiment was expanded to 2,000 people.",
+        "confidence": 0.35
+      },
+      {
+        "claim": "By the early 1980s, branch offices and home workers were able to connect to organizational mainframes using personal computers and terminal emulators.",
+        "evidence": "By the early 1980s, branch offices and home workers were able to connect to organizational mainframes using personal computers and terminal emulators.",
+        "confidence": 1.0
+      }
+    ]
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Machine_learning",
+    "claims": [
+      {
+        "claim": "Statistics and mathematical optimisation (mathematical programming) methods compose the foundations of machine learning.",
+        "evidence": "Statistics and mathematical optimisation (mathematical programming) methods compose the foundations of machine learning.",
+        "confidence": 0.8
+      },
+      {
+        "claim": "Data mining is a related field of study, focusing on exploratory data analysis (EDA) through unsupervised learning. From a theoretical viewpoint, probably approximately correct learning provides a mathematical and statistical framework for describing machine learning.",
+        "evidence": "Data mining is a related field of study, focusing on exploratory data analysis (EDA) through unsupervised learning. From a theoretical viewpoint, probably approximately correct learning provides a mathematical and statistical framework for describing machine learning.",
+        "confidence": 1
+      },
+      {
+        "claim": "Most traditional machine learning and deep learning algorithms can be described as empirical risk minimisation under this framework.",
+        "evidence": "Most traditional machine learning and deep learning algorithms can be described as empirical risk minimisation under this framework.",
+        "confidence": 0.88
+      },
+      {
+        "claim": "In the early days of AI as an academic discipline, some researchers were interested in having machines learn from data.",
+        "evidence": "In the early days of AI as an academic discipline, some researchers were interested in having machines learn from data.",
+        "confidence": 0.79
+      }
+    ]
+  }
+]
