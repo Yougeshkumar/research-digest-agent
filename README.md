@@ -52,7 +52,22 @@ The **Research Digest Agent** is an autonomous AI system that:
 ---
 
 ## 📂 Project Structure
-![alt text](image-3.png)
+research-digest-agent/
+│
+├── src/
+│ ├── main.py
+│ ├── fetch.py
+│ ├── extract.py
+│ ├── cluster.py
+│ └── generate.py
+│
+├── outputs/
+│ ├── digest.html
+│ ├── digest.md
+│ └── sources.json
+│
+├── requirements.txt
+└── README.md
 
 ---
 
