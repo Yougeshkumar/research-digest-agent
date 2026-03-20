@@ -83,14 +83,8 @@ python src/main.py
 
 Open in browser- digest.html
 
-
 ---
 
-# 🔥 FIX 3: HOW IT WORKS
-
-Replace with:
-
-```md
 ## ⚙️ How It Works
 
 1. **Data Collection**  
@@ -103,16 +97,20 @@ Replace with:
    Groups similar claims using ML  
 
 4. **Digest Generation**  
-   Outputs structured summary + UI  
+   Outputs structured summary + interactive UI  
 
-   ## ⚠️ Limitations
+---
 
-- Heuristic-based extraction (not LLM-level)
-- Limited semantic understanding
+## ⚠️ Limitations
+
+- Heuristic-based extraction (not LLM-level)  
+- Limited semantic understanding  
+
+---
 
 ## 🔮 Future Improvements
 
-- 🤖 LLM integration (GPT / Gemini)
-- 🧠 Vector database (FAISS)
-- 🌐 Real-time APIs
-- 📊 Analytics dashboard
+- 🤖 LLM integration (GPT / Gemini)  
+- 🧠 Vector database (FAISS)  
+- 🌐 Real-time APIs  
+- 📊 Analytics dashboard  
