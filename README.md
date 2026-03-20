@@ -81,7 +81,8 @@ cd research-digest-agent
 pip install -r requirements.txt
 python src/main.py
 
-Open in browser- digest.html
+👉 Then open: 
+outputs/digest.html
 ```
 
 ---
