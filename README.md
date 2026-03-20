@@ -27,6 +27,21 @@ The **Research Digest Agent** is an autonomous AI system that:
 
 ---
 
+## 🎥 Demo
+
+<p align="center">
+
+<img src="image.png" alt="Output" width="800"/><br><br>
+
+<img src="image-1.png" alt="Summary Output" width="800"/><br><br>
+
+<img src="image-2.png" alt="Dashboard" width="800"/><br><br>
+
+<img src="image-3.png" alt="Final Digest" width="800"/>
+
+</p>
+
+---
 ## ✨ Features
 
 - 🔍 Web Scraping  
