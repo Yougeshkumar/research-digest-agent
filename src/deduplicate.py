@@ -1,31 +1,53 @@
+from collections import defaultdict
+
+
 def group_claims(claims):
-    groups = {}
+    groups = defaultdict(list)
 
     for item in claims:
         text = item["claim"].lower()
 
-        # 🔹 Simple topic detection
-        if "artificial intelligence" in text or "ai" in text:
+        if any(word in text for word in [
+            "artificial intelligence", "ai", "intelligence", "reasoning"
+        ]):
             key = "Artificial Intelligence"
 
-        elif "climate" in text or "global warming" in text:
-            key = "Climate Change"
-
-        elif "electric vehicle" in text or "ev" in text:
-            key = "Electric Vehicles"
-
-        elif "remote work" in text or "work from home" in text:
-            key = "Remote Work"
-
-        elif "machine learning" in text:
+        elif any(word in text for word in [
+            "machine learning", "deep learning", "data mining", "algorithm"
+        ]):
             key = "Machine Learning"
 
-        else:
-            key = "Other Insights"
+        elif any(word in text for word in [
+            "climate", "global warming", "carbon", "temperature", "environment"
+        ]):
+            key = "Climate Change"
 
-        if key not in groups:
-            groups[key] = []
+        elif any(word in text for word in [
+            "electric vehicle", "ev", "battery", "motor", "vehicle"
+        ]):
+            key = "Electric Vehicles"
+
+        elif any(word in text for word in [
+            "remote work", "work from home", "telework", "office", "workplace"
+        ]):
+            key = "Remote Work"
+
+        else:
+            # 🔥 REMOVE weak claims instead of dumping into "Other"
+            continue
 
         groups[key].append(item)
 
-    return list(groups.values())
+    # Convert to final structure
+    final_groups = []
+
+    for key, items in groups.items():
+        if len(items) < 2:
+            continue  # 🔥 remove weak themes
+
+        final_groups.append({
+            "theme": key,
+            "claims": items[:5]
+        })
+
+    return final_groups

@@ -4,6 +4,7 @@ from extract import extract_claims
 from deduplicate import group_claims
 from generate import save_outputs
 
+
 def load_urls(file_path):
     with open(file_path, "r") as f:
         return [line.strip() for line in f.readlines() if line.strip()]
@@ -16,13 +17,15 @@ def run_pipeline():
     sources_data = []
 
     for url in urls:
-        print(f"Processing: {url}")
+        print(f"🔄 Processing: {url}")
 
         data = fetch_url_content(url)
         if not data:
+            print(f"⚠️ Skipped (no data): {url}")
             continue
 
-        claims = extract_claims(data["content"])
+        # ✅ FIX: pass source (VERY IMPORTANT)
+        claims = extract_claims(data["content"], url)
 
         sources_data.append({
             "url": url,
@@ -35,9 +38,15 @@ def run_pipeline():
         print("❌ No claims extracted.")
         return
 
+    print(f"✅ Total Claims Extracted: {len(all_claims)}")
+
     groups = group_claims(all_claims)
 
+    print(f"🧠 Total Themes Generated: {len(groups)}")
+
     save_outputs(groups, sources_data)
+
+    print("🎉 Pipeline completed successfully!")
 
 
 if __name__ == "__main__":

@@ -11,275 +11,199 @@ def get_confidence_class(conf):
         return "low"
 
 
+# ================= SUMMARY GENERATOR =================
+def generate_summary(claims):
+    if not claims:
+        return ""
+
+    important = claims[:3]
+    sentences = [c["claim"] for c in important]
+
+    summary = " ".join(sentences)
+
+    return summary[:200] + "..." if len(summary) > 200 else summary
+
+
+# ================= HTML GENERATOR =================
 def generate_html(groups):
     html = """
-<!DOCTYPE html>
-<html>
-<head>
-<title>Research Digest</title>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Research Digest</title>
 
-<style>
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    transition: 0.3s;
-}
+        <style>
+            body {
+                font-family: 'Segoe UI', Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background: #0f172a;
+                color: #e2e8f0;
+            }
 
-/* 🌙 DARK MODE */
-body.dark {
-    background: radial-gradient(circle at top, #0f172a, #020617);
-    color: #e2e8f0;
-}
+            h1 {
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
 
-/* ☀️ LIGHT MODE */
-body.light {
-    background: #f8fafc;
-    color: #0f172a;
-}
+            input {
+                width: 100%;
+                padding: 12px;
+                margin-bottom: 20px;
+                border-radius: 8px;
+                border: none;
+                outline: none;
+                font-size: 16px;
+            }
 
-/* CONTAINER */
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 30px 20px;
-}
+            .theme {
+                margin-top: 30px;
+            }
 
-/* HEADER */
-h1 {
-    font-size: 34px;
-    margin-bottom: 25px;
-}
+            .theme-header {
+                background: linear-gradient(135deg, #6366f1, #8b5cf6);
+                padding: 15px;
+                border-radius: 10px;
+            }
 
-/* TOP BAR */
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
+            .summary {
+                margin-top: 10px;
+                font-size: 14px;
+                color: #e0e7ff;
+            }
 
-input {
-    padding: 10px 14px;
-    border-radius: 10px;
-    border: none;
-    width: 260px;
-}
+            .sources {
+                font-size: 13px;
+                margin-top: 8px;
+                color: #cbd5f5;
+            }
 
-select {
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    margin-left: 10px;
-}
+            .card {
+                background: #1e293b;
+                padding: 15px;
+                margin: 12px 0;
+                border-radius: 10px;
+                border-left: 4px solid #6366f1;
+            }
 
-button {
-    padding: 10px 14px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    background: linear-gradient(135deg, #6366f1, #4f46e5);
-    color: white;
-}
+            .claim {
+                font-weight: 600;
+            }
 
-/* MODE BASED INPUT */
-body.dark input,
-body.dark select {
-    background: #1e293b;
-    color: white;
-}
+            .evidence {
+                font-size: 14px;
+                color: #94a3b8;
+                margin-top: 5px;
+            }
 
-body.light input,
-body.light select {
-    background: white;
-    color: black;
-    border: 1px solid #ccc;
-}
+            .high { color: #22c55e; }
+            .medium { color: #f59e0b; }
+            .low { color: #ef4444; }
+        </style>
+    </head>
 
-/* THEME BLOCK */
-.theme-block {
-    margin-bottom: 40px;
-}
+    <body>
 
-/* THEME HEADER */
-.theme-header {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-    padding: 16px;
-    border-radius: 14px;
-    margin-bottom: 12px;
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
-}
+        <h1>📊 Research Digest</h1>
 
-/* CARD */
-.card {
-    padding: 20px;
-    margin: 14px 0;
-    border-radius: 12px;
-    transition: 0.25s;
-}
+        <!-- 🔍 THEME SEARCH BAR -->
+        <input 
+            type="text" 
+            id="themeSearch" 
+            placeholder="🔍 Search themes..." 
+            onkeyup="filterThemes()"
+        >
+    """
 
-body.dark .card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.08);
-}
-
-body.light .card {
-    background: white;
-    border: 1px solid #e2e8f0;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-}
-
-/* TEXT */
-.claim {
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.evidence {
-    font-size: 14px;
-    margin-bottom: 6px;
-}
-
-body.dark .evidence {
-    color: #94a3b8;
-}
-
-body.light .evidence {
-    color: #555;
-}
-
-/* CONFIDENCE COLORS */
-.high { color: #22c55e; }
-.medium { color: #f59e0b; }
-.low { color: #ef4444; }
-
-</style>
-
-<script>
-function toggleDark() {
-    let body = document.body;
-
-    if (body.classList.contains("dark")) {
-        body.classList.remove("dark");
-        body.classList.add("light");
-    } else {
-        body.classList.remove("light");
-        body.classList.add("dark");
-    }
-}
-
-function searchClaims() {
-    let input = document.getElementById("search").value.toLowerCase();
-    let cards = document.getElementsByClassName("card");
-
-    for (let c of cards) {
-        let text = c.innerText.toLowerCase();
-        c.style.display = text.includes(input) ? "block" : "none";
-    }
-}
-
-function filterThemes() {
-    let value = document.getElementById("themeFilter").value;
-    let themes = document.getElementsByClassName("theme-block");
-
-    for (let t of themes) {
-        if (value === "all") {
-            t.style.display = "block";
-        } else {
-            t.style.display = t.dataset.theme === value ? "block" : "none";
-        }
-    }
-}
-</script>
-</head>
-
-<body class="dark">
-
-<div class="container">
-
-<h1>📊 Research Digest</h1>
-
-<div class="top-bar">
-    <div>
-        <input id="search" onkeyup="searchClaims()" placeholder="🔍 Search claims...">
-        <select id="themeFilter" onchange="filterThemes()">
-            <option value="all">All Themes</option>
-"""
-
-    # Dropdown
-    for i in range(len(groups)):
-        html += f'<option value="{i}">Theme {i+1}</option>'
-
-    html += """
-        </select>
-    </div>
-
-    <button onclick="toggleDark()">🌙 Toggle Mode</button>
-</div>
-"""
-
-    # Themes
     for i, group in enumerate(groups):
-        if not group:
+        if not group or not group["claims"]:
             continue
 
-        html += f'<div class="theme-block" data-theme="{i}">'
+        sources = list(set([item.get("source", "Unknown") for item in group["claims"]]))
+        summary = generate_summary(group["claims"])
 
         html += f"""
-<div class="theme-header">
-<b>Theme {i+1}</b><br>
-{group[0]['claim'][:120]}...<br>
-Supporting Claims: {len(group)}
-</div>
-"""
+        <div class="theme searchable-theme">
+            <div class="theme-header">
+                <b>🧠 Theme {i+1}</b><br>
+                <span class="theme-title">{group['theme']}</span><br>
 
-        for item in group:
+                <div class="summary">
+                    🤖 <b>Summary:</b> {summary}
+                </div>
+
+                <div class="sources">
+                    🔗 Sources: {", ".join(sources)}
+                </div>
+            </div>
+        """
+
+        for idx, item in enumerate(group["claims"], 1):
             conf = item.get("confidence", 0.8)
             cls = get_confidence_class(conf)
 
             html += f"""
-<div class="card">
-<p class="claim">🔹 {item['claim']}</p>
-<p class="evidence">Evidence: {item['evidence']}</p>
-<p class="{cls}">Confidence: {conf}</p>
-</div>
-"""
+            <div class="card">
+                <p class="claim">🔹 <b>Claim {idx}:</b> {item['claim']}</p>
+                <p class="evidence"><b>Evidence:</b> {item['evidence'][:120]}...</p>
+                <p class="{cls}"><b>Confidence:</b> {conf}</p>
+            </div>
+            """
 
         html += "</div>"
 
+    # 🔥 JAVASCRIPT FOR THEME SEARCH
     html += """
-</div>
-</body>
-</html>
-"""
+    <script>
+    function filterThemes() {
+        let input = document.getElementById("themeSearch").value.toLowerCase();
+        let themes = document.getElementsByClassName("searchable-theme");
+
+        for (let i = 0; i < themes.length; i++) {
+            let title = themes[i].getElementsByClassName("theme-title")[0];
+            let text = title.innerText.toLowerCase();
+
+            if (text.includes(input)) {
+                themes[i].style.display = "block";
+            } else {
+                themes[i].style.display = "none";
+            }
+        }
+    }
+    </script>
+    """
+
+    html += "</body></html>"
 
     return html
 
 
-# MARKDOWN
+# ================= MARKDOWN GENERATOR =================
 def generate_markdown(groups):
     md = "# Research Digest\n\n"
 
     for i, group in enumerate(groups):
-        if not group:
+        if not group or not group["claims"]:
             continue
 
-        md += f"## Theme {i+1}: {group[0]['claim'][:60]}...\n\n"
-        md += f"**Number of Supporting Claims:** {len(group)}\n\n"
+        sources = list(set([item.get("source", "Unknown") for item in group["claims"]]))
+        summary = generate_summary(group["claims"])
 
-        for item in group:
-            md += f"### Claim\n{item['claim']}\n\n"
-            md += f"**Evidence:** \"{item['evidence']}\"\n\n"
-            md += f"**Confidence:** {item.get('confidence', 0.8)}\n\n"
-            md += "---\n\n"
+        md += f"## Theme {i+1}: {group['theme']}\n\n"
+        md += f"**Summary:** {summary}\n\n"
+        md += f"**Sources:** {', '.join(sources)}\n\n"
+
+        for idx, item in enumerate(group["claims"], 1):
+            md += f"- **Claim {idx}:** {item['claim']}\n"
+            md += f"  - Evidence: \"{item['evidence'][:120]}...\"\n"
+            md += f"  - Confidence: {item.get('confidence', 0.8)}\n\n"
+
+        md += "---\n\n"
 
     return md
 
 
-# SAVE OUTPUTS
+# ================= SAVE OUTPUTS =================
 def save_outputs(groups, sources):
     os.makedirs("outputs", exist_ok=True)
 
@@ -293,8 +217,8 @@ def save_outputs(groups, sources):
     with open("outputs/digest.html", "w", encoding="utf-8") as f:
         f.write(html)
 
-    # Sources
+    # JSON
     with open("outputs/sources.json", "w", encoding="utf-8") as f:
         json.dump(sources, f, indent=2)
 
-    print("✅ Outputs saved in /outputs (MD + HTML)")
+    print("✅ Outputs saved in /outputs (HTML + MD + JSON)")
