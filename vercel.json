@@ -1,6 +1,6 @@
 {
   "routes": [
-    { "src": "/run", "dest": "api/index.py" },
-    { "src": "/", "dest": "/index.html" }
+    { "handle": "filesystem" },
+    { "src": "/run", "dest": "api/index.py" }
   ]
 }
