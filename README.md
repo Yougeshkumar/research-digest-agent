@@ -89,8 +89,6 @@ outputs/digest.html
 
 ## ⚙️ How It Works
 
-## ⚙️ How It Works
-
 The Research Digest Agent follows a multi-stage AI pipeline:
 
 ### 1️⃣ Data Collection
