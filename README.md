@@ -89,17 +89,29 @@ outputs/digest.html
 
 ## ⚙️ How It Works
 
-1. **Data Collection**  
-   Scrapes content from multiple sources  
+## ⚙️ How It Works
 
-2. **Claim Extraction**  
-   Breaks text into meaningful insights  
+The Research Digest Agent follows a multi-stage AI pipeline:
 
-3. **Clustering**  
-   Groups similar claims using ML  
+### 1️⃣ Data Collection
+- Scrapes and aggregates content from multiple sources (articles, web pages)
+- Ensures diverse and relevant input data
 
-4. **Digest Generation**  
-   Outputs structured summary + interactive UI  
+### 2️⃣ Claim Extraction
+- Uses NLP techniques to extract meaningful insights from raw text
+- Converts unstructured text into structured claims
+
+### 3️⃣ Semantic Clustering
+- Applies ML techniques (TF-IDF / embeddings) to group similar claims
+- Reduces redundancy and organizes related ideas
+
+### 4️⃣ Digest Generation
+- Uses AI models to generate a concise, structured summary
+- Outputs key insights, summaries, and source references
+
+### 5️⃣ Interactive Visualization
+- Displays results in a user-friendly dashboard
+- Enables easy exploration of insights 
 
 ---
 
